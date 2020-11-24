@@ -1,21 +1,30 @@
 import React, { Component } from "react";
+import Counter from "./Counter";
 class ControlPanel extends Component {
   // React 新的前端思维方式 •！• 5
   constructor(props) {
     super(props);
-    this.onClickButton = this.onClickButton.bind(this);
     this.state = {
-      count: 0,
+      total: 0,
     };
   }
-  onClickButton() {
-    this.setState({ count: this.state.count + 1 });
+
+  componentWillMount() {
+    console.log("enter componentWillMount");
   }
+
+  componentDidMount() {
+    console.log("enter componentDidMount");
+  }
+
   render() {
+    const counterStyle = { margin: "16px" };
     return (
-      <div>
-        <button onClick={this.onClickButton}>Click Me</button>
-        <div>Click Count : {this.state.count}</div>
+      <div style={counterStyle}>
+        <Counter name="first" />
+        <Counter name="second" />
+        <Counter name="third" />
+        <div> total: {this.state.total} </div>
       </div>
     );
   }

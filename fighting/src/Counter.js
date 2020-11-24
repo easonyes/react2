@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-class ControlPanel extends Component {
+class Counter extends Component {
   // React 新的前端思维方式 •！• 5
   constructor(props) {
     super(props);
     this.onClickButton = this.onClickButton.bind(this);
     this.state = {
       count: 0,
+      name: props.name,
     };
   }
   onClickButton() {
@@ -15,9 +16,16 @@ class ControlPanel extends Component {
     return (
       <div>
         <button onClick={this.onClickButton}>Click Me</button>
-        <div>Click Count : {this.state.count}</div>
+        <div>
+          {this.state.name} Count : {this.state.count}
+        </div>
       </div>
     );
   }
 }
-export default ControlPanel;
+
+Counter.defaultProps = {
+  name: "xxx",
+};
+
+export default Counter;
